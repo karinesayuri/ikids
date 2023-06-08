@@ -7,24 +7,24 @@ public class Investimento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private int idInvestimento;
+	private String idInvestimento;
 	
 	private String tipoInvestimento;
 	
-	private BigDecimal tavaInvestimento;
+	private BigDecimal taxaInvestimento;
 	
-	public Investimento(int idInvestimento, String tipoInvestimento, BigDecimal tavaInvestimento) {
+	public Investimento(String idInvestimento, String tipoInvestimento, BigDecimal taxaInvestimento) {
 		super();
 		this.idInvestimento = idInvestimento;
 		this.tipoInvestimento = tipoInvestimento;
-		this.tavaInvestimento = tavaInvestimento;
+		this.taxaInvestimento = taxaInvestimento;
 	}
 
-	public int getIdInvestimento() {
+	public String getIdInvestimento() {
 		return idInvestimento;
 	}
 
-	public void setIdInvestimento(int idInvestimento) {
+	public void setIdInvestimento(String idInvestimento) {
 		this.idInvestimento = idInvestimento;
 	}
 
@@ -37,11 +37,14 @@ public class Investimento implements Serializable{
 	}
 
 	public BigDecimal getTavaInvestimento() {
-		return tavaInvestimento;
+		return taxaInvestimento;
 	}
 
 	public void setTavaInvestimento(BigDecimal tavaInvestimento) {
-		this.tavaInvestimento = tavaInvestimento;
+		this.taxaInvestimento = tavaInvestimento;
 	}
+
 	
 }
+
+	

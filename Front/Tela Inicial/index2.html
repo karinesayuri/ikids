@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tela Inicial</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #8A05BE;
+      color: #FFFFFF;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background-color: #FFFFFF;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      color: #8A05BE;
+      font-weight: bold;
+    }
+
+    .btn-custom {
+      background-color: #000000;
+      border-color: #000000;
+      color: #FFFFFF;
+    }
+
+    .btn-custom:hover,
+    .btn-custom:focus {
+      background-color: #222222;
+      border-color: #222222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-left">Olá, [Nome do Usuário]</h1>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Saldo</h5>
+            <p class="card-text">R$ [Valor do Saldo]</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Investimento</h5>
+            <p class="card-text">R$ [Valor do Investimento]</p>
+            <button class="btn btn-custom">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Dados Cadastrais</h5>
+            <p class="card-text">Nome: [Nome do Usuário]</p>
+            <p class="card-text">Email: [Email do Usuário]</p>
+            <p class="card-text">Telefone: [Telefone do Usuário]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

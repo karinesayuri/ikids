@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Exemplo de Página JSP com JSTL</title>
+    <title>Ikids</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <style>
     body {
@@ -19,7 +19,9 @@
     }
 
     .navbar-brand {
-      margin-right: auto; 
+      margin-left: 10px;
+      font-size: 30px;
+      padding: 0px;
     }
 
     .container {
@@ -33,7 +35,7 @@
       border-radius: 0;
       margin-bottom: 0;
       color: #ffffff;
-      background-image: url("${pageContext.request.contextPath}/img/imagem1.avif");
+      background-image: url("img/imagem1.avif");
       background-size: cover;
       background-position: center;
       height: 550px; /* Altura personalizada */
@@ -69,10 +71,12 @@
     }
 
     .features {
-      padding: 30px;
-      background-color: #ffffff;
+      padding: 40px;
+      background: #ffffff;
       border-radius: 5px;
       margin-top: 30px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      color: #4d47a6;
     }
 
     .features h2 {
@@ -99,14 +103,13 @@
       top: 0;
     }
 
+    .feature-item {
+      font-size: 18px;
+    }
+
     .cta {
       text-align: center;
       margin-top: 30px;
-    }
-
-    .navbar-text-left {
-      margin-right: auto;
-      margin-left: 0;
     }
 
     .banner {
@@ -122,7 +125,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("${pageContext.request.contextPath}/img/imagem1.avif");
+      background-image: url("img/imagem1.avif");
       background-size: cover;
       background-position: bottom;
       z-index: -1;
@@ -132,26 +135,20 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand navbar-text-left" href="#">Meu Banco Digital</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  		<div class="container-fluid">
+    		<a class="navbar-brand navbar-text-left" href="#">Ikids</a>
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+	    	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+		      <ul class="navbar-nav">
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">Login</a>
+		        </li>
+		      </ul>
+	    	</div>
+  		</div>
+	</nav>
   <div class="banner">
     <div>
         <h1 class="display-4">Bem-vindo Banco Digital Ikids</h1>
@@ -164,16 +161,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 features">
-        <h2 class="text-center">Pensado especialmente para crianças e seus pais</h2>
-        <p class="text-center">O Meu Banco Digital é uma plataforma segura e educacional projetada para ajudar crianças a aprenderem sobre gestão financeira desde cedo, com o apoio e acompanhamento dos pais. Nossos recursos incluem:</p>
+        <h2>Pensado especialmente para crianças e seus pais</h2>
+        <p>O Meu Banco Digital é uma plataforma segura e educacional projetada para ajudar crianças a aprenderem sobre gestão financeira desde cedo, com o apoio e acompanhamento dos pais. Nossos recursos incluem:</p>
         <ul>
-          <li>Contas bancárias personalizadas para crianças</li>
-          <li>Ferramentas interativas para ensinar conceitos financeiros</li>
-          <li>Acompanhamento dos gastos e economias</li>
-          <li>Orçamento e metas financeiras</li>
-          <li>Transações controladas pelos pais</li>
+          <li class="feature-item">Contas bancárias personalizadas para crianças</li>
+          <li class="feature-item">Ferramentas interativas para ensinar conceitos financeiros</li>
+          <li class="feature-item">Acompanhamento dos gastos e economias</li>
+          <li class="feature-item">Orçamento e metas financeiras</li>
+          <li class="feature-item">Transações controladas pelos pais</li>
         </ul>
-        <p class="text-center">Abra uma conta hoje mesmo e comece a ensinar seu filho sobre finanças de forma divertida e responsável!</p>
+        <p>Abra uma conta hoje mesmo e comece a ensinar seu filho sobre finanças de forma divertida e responsável!</p>
       </div>
     </div>
   </div>

@@ -3,18 +3,19 @@ package br.com.fiap.ikids.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Conta implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private int idConta;
+	private String idConta;
 	private String numeroConta;
 	private String numeroAgencia;
-	private BigDecimal valorSaldo;
-	private Calendar dataAbertura;
+	private Double valorSaldo;
+	private Date dataAbertura;
 	
-	public Conta(int idConta, String numeroConta, String numeroAgencia, BigDecimal valorSaldo, Calendar dataAbertura) {
+	public Conta(String idConta, String numeroConta, String numeroAgencia, Double valorSaldo, Date dataAbertura) {
 		super();
 		this.idConta = idConta;
 		this.numeroConta = numeroConta;
@@ -23,11 +24,11 @@ public class Conta implements Serializable{
 		this.dataAbertura = dataAbertura;
 	}
 
-	public int getIdConta() {
+	public String getIdConta() {
 		return idConta;
 	}
 
-	public void setIdConta(int idConta) {
+	public void setIdConta(String idConta) {
 		this.idConta = idConta;
 	}
 
@@ -47,20 +48,23 @@ public class Conta implements Serializable{
 		this.numeroAgencia = numeroAgencia;
 	}
 
-	public BigDecimal getValorSaldo() {
+	public Double getValorSaldo() {
 		return valorSaldo;
 	}
 
-	public void setValorSaldo(BigDecimal valorSaldo) {
+	public void setValorSaldo(Double valorSaldo) {
 		this.valorSaldo = valorSaldo;
 	}
 
-	public Calendar getDataAbertura() {
+	public Date getDataAbertura() {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(Calendar dataAbertura) {
+	public void setDataAbertura(Date dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
-	
 }
+	
+	
+	
+	

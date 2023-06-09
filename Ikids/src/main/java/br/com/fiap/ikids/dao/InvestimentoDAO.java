@@ -23,6 +23,7 @@ private Connection conexao;
 		stmt.setString(2, investimento.getTipoInvestimento());
 		stmt.setBigDecimal(3, investimento.getTavaInvestimento());
 		
-		
+		stmt.execute();
+		stmt.close();
 	}
 }

@@ -13,13 +13,10 @@ public class Login implements Serializable{
 	private String login;
 	private String senha;
 	
-	public Login(String usuario, String login, String senha) {
+	public Login(String login, String senha) {
 		super();
-		this.usuario = usuario;
 		this.login = login;
 		this.senha = senha;
-		
-		
 	}
 
 	public String getUsuario() {

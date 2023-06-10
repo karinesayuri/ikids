@@ -2,6 +2,7 @@ package br.com.fiap.ikids.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.fiap.ikids.factory.ConnectionFactory;
@@ -25,6 +26,31 @@ public class LoginDAO {
 		
 		stmt.execute();
 		stmt.close();
+	}
+	
+	public boolean logar (String login, String senha) {
+		boolean loginEncontrado = false;
+		String sql = "select * from t_login where ds_login = ? and ds_senha = ?";
+		
+		PreparedStatement stmt;
+		try {
+			stmt = conexao.prepareStatement(sql);
+			stmt.setString(2, login);
+			stmt.setString(3, senha);
+			
+			ResultSet rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            loginEncontrado = true;
+	        }
+	        
+	        rs.close();
+	        stmt.close();
+	        conexao.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return loginEncontrado;
 	}
 
 }

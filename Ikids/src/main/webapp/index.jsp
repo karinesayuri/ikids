@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -152,16 +151,13 @@
 	    	</div>
   		</div>
 	</nav>
-	<c:set var="nome" value="João" />
-
-  <p>Bem-vindo, <c:out value="${nome}" /></p>
   <div class="banner">
     <div>
         <h1 class="display-4">Bem-vindo Banco Digital Ikids</h1>
         <p class="lead">Um banco digital seguro e conveniente para suas necessidades financeiras.</p>
         <hr class="my-4">
         <p>Abra uma conta conosco hoje mesmo e aproveite todos os benefícios que oferecemos.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Abrir Conta</a>
+        <a class="btn btn-primary btn-lg" href="#" role="button" onclick="abrirConta()">Abrir Conta</a>
     </div>
   </div>
   <div class="container">
@@ -184,6 +180,10 @@
 	<script>
     function redirecionarPagina() {
       window.location.href = 'http://localhost:8080/Ikids/login.jsp';
+    }
+    
+    function abrirConta(){
+    	window.location.href = 'http://localhost:8080/Ikids/cadastro.jsp';
     }
   </script>
 </body>

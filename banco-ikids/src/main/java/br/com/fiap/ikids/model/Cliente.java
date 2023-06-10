@@ -1,7 +1,7 @@
 package br.com.fiap.ikids.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.sql.Date;
 
 public class Cliente implements Serializable {
 
@@ -12,12 +12,12 @@ public class Cliente implements Serializable {
 	
 	private String cliente;
 	private String nomeCliente;
-	private Calendar dataNascimento;
+	private Date dataNascimento;
 	private String numeroRg;
 	private String numeroCpf;
 	private String genero;
 	private int telefone;
-	public Cliente(String cliente, String nomeCliente, Calendar dataNascimento, String numeroRg, String numeroCpf,
+	public Cliente(String cliente, String nomeCliente, Date dataNascimento, String numeroRg, String numeroCpf,
 			String genero, int telefone) {
 		super();
 		this.cliente = cliente;
@@ -44,10 +44,10 @@ public class Cliente implements Serializable {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	public Calendar getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	public String getNumeroRg() {

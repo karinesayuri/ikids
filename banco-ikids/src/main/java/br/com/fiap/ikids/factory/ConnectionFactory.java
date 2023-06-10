@@ -11,13 +11,18 @@ public class ConnectionFactory {
 	public Connection conect() {
 
 		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			return DriverManager.getConnection(ORACLE, "rm97484", "210683");
 		} catch (SQLException e) {
 			System.out.println("Erro ao conectar");
 			e.printStackTrace();
 			throw new RuntimeException(e);
 
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return null;
 	}
 
 }

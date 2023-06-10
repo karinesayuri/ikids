@@ -179,11 +179,11 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script>
     function redirecionarPagina() {
-      window.location.href = 'http://localhost:8080/Ikids/login.jsp';
+      window.location.href = 'http://localhost:8080/banco-ikids/login.jsp';
     }
     
     function abrirConta(){
-    	window.location.href = 'http://localhost:8080/Ikids/cadastro.html';
+    	window.location.href = 'http://localhost:8080/banco-ikids/cadastro.html';
     }
   </script>
 </body>

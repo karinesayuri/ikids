@@ -2,6 +2,7 @@ package br.com.fiap.ikids.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.fiap.ikids.factory.ConnectionFactory;
@@ -21,14 +22,19 @@ public class ClienteDAO {
 		
 		stmt.setString(1, cliente.getCliente());
 		stmt.setString(2, cliente.getNomeCliente());
-		//stmt.setDate(3, cliente.getDataNascimento());
+		stmt.setDate(3, cliente.getDataNascimento());
 		stmt.setString(4, cliente.getNumeroRg());
 		stmt.setString(5, cliente.getNumeroCpf());
 		stmt.setString(6, cliente.getGenero());
 		stmt.setInt(7, cliente.getTelefone());
 		
+		int linhasAfetadas = stmt.executeUpdate();
 		
-	
+		if (linhasAfetadas > 0) {
+            return cliente;
+        }
+		return cliente;
+		
 	}
 
 }

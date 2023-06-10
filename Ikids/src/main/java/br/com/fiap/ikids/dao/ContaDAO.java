@@ -23,7 +23,7 @@ public class ContaDAO {
 		stmt.setString(2, conta.getNumeroAgencia());
 		stmt.setString(3, conta.getNumeroConta());
 		stmt.setDouble(4, conta.getValorSaldo());
-		stmt.setDate(5, conta.getDataAbertura());
+		//stmt.setDate(5, conta.getDataAbertura());
 		
 		stmt.execute();
 		stmt.close();

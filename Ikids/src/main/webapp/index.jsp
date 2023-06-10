@@ -143,7 +143,7 @@
 	    	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
 		      <ul class="navbar-nav">
 		        <li class="nav-item">
-		          <a class="nav-link" href="#">Login</a>
+		          <a class="nav-link" onclick="redirecionarPagina()">Login</a>
 		        </li>
 		      </ul>
 	    	</div>
@@ -175,5 +175,10 @@
     </div>
   </div>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+    function redirecionarPagina() {
+      window.location.href = 'http://localhost:8080/Ikids/login.jsp';
+    }
+  </script>
 </body>
 </html>

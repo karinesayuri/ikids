@@ -24,6 +24,9 @@ public class Conta implements Serializable{
 		this.dataAbertura = dataAbertura;
 	}
 
+	public Conta() {
+	}
+
 	public String getIdConta() {
 		return idConta;
 	}

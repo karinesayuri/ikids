@@ -13,10 +13,12 @@ public class Cliente implements Serializable {
 	private String cliente;
 	private String nomeCliente;
 	private Date dataNascimento;
+	private String dataNacimentoFormatada;
 	private String numeroRg;
 	private String numeroCpf;
 	private String genero;
 	private int telefone;
+	
 	public Cliente(String cliente, String nomeCliente, Date dataNascimento, String numeroRg, String numeroCpf,
 			String genero, int telefone) {
 		super();
@@ -32,6 +34,15 @@ public class Cliente implements Serializable {
 	}
 	public Cliente() {
 	}
+	
+	public String getDataNacimentoFormatada() {
+		return dataNacimentoFormatada;
+	}
+	
+	public void setDataNacimentoFormatada(String dataNacimentoFormatada) {
+		this.dataNacimentoFormatada = dataNacimentoFormatada;
+	}
+	
 	public String getCliente() {
 		return cliente;
 	}

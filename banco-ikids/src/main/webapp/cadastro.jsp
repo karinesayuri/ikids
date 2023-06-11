@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +56,21 @@
   <body>
     <div class="container">
     	<h2>Cadastro de Cliente</h2>
-    	<form action="/Ikids/novoCliente" method="POST">
+    	<c:if test="${mensagem != null}">
+	    	<c:choose>
+			    <c:when test="${mensagem != null && mensagem eq 'Cadastrado com sucesso!'}">
+			        <div class="alert alert-success">
+			            ${mensagem}
+			        </div>
+			    </c:when>
+			    <c:otherwise>
+			        <div class="alert alert-danger">
+			            ${mensagem}
+			        </div>
+			    </c:otherwise>
+			</c:choose>    		
+    	</c:if>
+    	<form action="/banco-ikids/Cadastro" method="POST">
 	      <div class="form-group">
 	       	<label for="nome">Nome do cliente:</label>
 	       	<input type="text" class="form-control" id="nome" name="nome">
@@ -64,11 +80,11 @@
 	        <input type="date" class="form-control" id="data-nascimento" name="data-nascimento">
 	      </div>
       	  <div class="form-group">
-        	<label for="rg">Número do RG:</label>
+        	<label for="rg">RG:</label>
         	<input type="text" class="form-control" id="rg" name="rg">
       	  </div>
       	  <div class="form-group">
-        	<label for="cpf">Número do CPF:</label>
+        	<label for="cpf">CPF:</label>
         	<input type="text" class="form-control" id="cpf" name="cpf">
           </div>
       	  <div class="form-group">

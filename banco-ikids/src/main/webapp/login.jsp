@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,12 @@
 <body>
     <div class="login-form">
     <h2 style="font-size: 75px;">Ikids</h2>
-    <form action="processa-login.php" method="POST">
+    <c:if test="${mensagem != null}">
+    	<div class="alert alert-danger">
+            ${mensagem}
+        </div>
+    </c:if>
+    <form action="/banco-ikids/Login" method="POST">
       <div class="form-group">
         <label for="usuario">Usuário:</label>
         <input type="text" class="form-control form-control-lg" id="usuario" name="usuario" required>

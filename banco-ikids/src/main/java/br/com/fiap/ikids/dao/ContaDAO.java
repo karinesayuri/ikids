@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.ikids.factory.ConnectionFactory;
+import br.com.fiap.ikids.model.Cliente;
 import br.com.fiap.ikids.model.Conta;
 import br.com.fiap.ikids.model.Endereco;
 
@@ -18,15 +19,16 @@ public class ContaDAO {
 		this.conexao = new ConnectionFactory().conect();
 	}
 
-	public void insert(Conta conta) throws SQLException {
-		String sql = "insert into t_conta(id_conta, nr_conta, nr_agencia, vl_saldo, da_abertura) values (?, ?, ?, ?,?)";
+	public void insert(Conta conta, Cliente cli) throws SQLException {
+		String sql = "insert into t_conta(id_conta, nr_agencia, nr_conta, vl_saldo, dt_abertura, T_CLIENTE_ID_CLIENTE) values (?, ?, ?, ?,?, ?)";
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 
 		stmt.setString(1, conta.getIdConta());
 		stmt.setString(2, conta.getNumeroAgencia());
 		stmt.setString(3, conta.getNumeroConta());
 		stmt.setDouble(4, conta.getValorSaldo());
-		//stmt.setDate(5, conta.getDataAbertura());
+		stmt.setDate(5, new java.sql.Date(conta.getDataAbertura().getTime()));
+		stmt.setString(6, cli.getCliente());
 
 		stmt.execute();
 		stmt.close();

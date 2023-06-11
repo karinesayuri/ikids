@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -62,7 +64,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" onclick="redirecionarPagina()">Olá, [Nome do Usuário] <br>Saldo R$ [Valor do Saldo]</a>
+              <a class="nav-link">Olá, ${loginEncontrado.cliente.nomeCliente }, <span onclick="sair()" >sair</span> <br>Saldo R$ ${loginEncontrado.conta.valorSaldo}</a>
             </li>
           </ul>
         </div>
@@ -76,32 +78,32 @@
               <h5 class="card-title">Dados Cadastrais</h5>
               <div class="row">
                 <div class="col-md-12">
-                  <p class="card-text">Nome: Julio Cezar Alexandre Santos Lima</p>
+                  <p class="card-text">Nome: ${loginEncontrado.cliente.nomeCliente }</p>
                 </div>
               </div>
               <div class="row row-space">
                 <div class="col-md-2">
-                  <p class="card-text">Gênero: Macho Alfa</p>
+                  <p class="card-text">Gênero: ${loginEncontrado.cliente.genero }</p>
                 </div>
               </div>
               <div class="row row-space">
                 <div class="col-md-3">
-                  <p class="card-text">CPF: 087.914.345-80</p>
+                  <p class="card-text">CPF: ${loginEncontrado.cliente.numeroCpf }</p>
                 </div>
               </div>
               <div class="row row-space">
                 <div class="col-md-3">
-                  <p class="card-text">RG: 41.568.908-0</p>
+                  <p class="card-text">RG: ${loginEncontrado.cliente.numeroRg }</p>
                 </div>
               </div>
               <div class="row row-space">
                 <div class="col-md-3">
-                  <p class="card-text">Nascimento: 27/01/1985</p>
+                  <p class="card-text">Nascimento: ${loginEncontrado.cliente.dataNacimentoFormatada }</p>
                 </div>
               </div>
               <div class="row row-space">
                 <div class="col-md-3">
-                  <p class="card-text">Telefone: 11 948295712</p>
+                  <p class="card-text">Telefone: ${loginEncontrado.cliente.telefone }</p>
                 </div>
               </div>
             </div>
@@ -113,35 +115,48 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Investimentos</h5>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Investimento</th>
-                    <th>Taxa</th>
-                    <th>Valor do Investimento</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>[Investimento 1]</td>
-                    <td>[Taxa 1]</td>
-                    <td>[Valor do Investimento 1]</td>
-                  </tr>
-                  <tr>
-                    <td>[Investimento 2]</td>
-                    <td>[Taxa 2]</td>
-                    <td>[Valor do Investimento 2]</td>
-                  </tr>
-                  <!-- Adicione mais linhas de acordo com seus investimentos -->
-                </tbody>
-              </table>
-              <button class="btn btn-custom">Cadastrar</button>
+              <c:if test="${fn:length(loginEncontrado.investimento) > 0}">
+	              <table class="table">
+	                <thead>
+	                  <tr>
+	                    <th>Investimento</th>
+	                    <th>Taxa</th>
+	                  </tr>
+	                </thead>
+	                <tbody>
+	                  <c:forEach var="investimento" items="${loginEncontrado.investimento}">
+					    <tr>
+					        <td>${investimento.tipoInvestimento}</td>
+					        <td>${investimento.taxaInvestimentoFormatada}</td>
+					    </tr>
+					</c:forEach>
+	                </tbody>
+	              </table>              
+              </c:if>
+              <c:if test="${fn:length(loginEncontrado.investimento) == 0}">
+              	<tr>
+			        <td colspan="3">Não há investimentos</td>
+			    </tr>
+              </c:if>
+              <div class="row">
+              	  <div class="col-md-1">
+		              <button class="btn btn-custom" onclick="cadastrarInvestimento()">Cadastrar</button>                        	  	
+              	  </div>		
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <script>
+		function cadastrarInvestimento(){
+	    	window.location.href = 'http://localhost:8080/banco-ikids/investimento.jsp?idCliente=${loginEncontrado.cliente.cliente}&nome=${loginEncontrado.cliente.nomeCliente}&saldo=${loginEncontrado.conta.valorSaldo}';
+	    }
+		
+		function sair(){
+			window.location.href = 'http://localhost:8080/banco-ikids/index.jsp';
+		}
+	</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

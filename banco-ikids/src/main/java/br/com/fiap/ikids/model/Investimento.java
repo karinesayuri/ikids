@@ -13,6 +13,10 @@ public class Investimento implements Serializable{
 	
 	private BigDecimal taxaInvestimento;
 	
+	private String taxaInvestimentoFormatada;
+	
+	private Cliente cliente;
+	
 	public Investimento(String idInvestimento, String tipoInvestimento, BigDecimal taxaInvestimento) {
 		super();
 		this.idInvestimento = idInvestimento;
@@ -20,8 +24,23 @@ public class Investimento implements Serializable{
 		this.taxaInvestimento = taxaInvestimento;
 	}
 
+	public Investimento() {
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
 	public String getIdInvestimento() {
 		return idInvestimento;
+	}
+	
+	public String getTaxaInvestimentoFormatada() {
+		return taxaInvestimentoFormatada;
+	}
+	
+	public void setTaxaInvestimentoFormatada(String taxaInvestimentoFormatada) {
+		this.taxaInvestimentoFormatada = taxaInvestimentoFormatada;
 	}
 
 	public void setIdInvestimento(String idInvestimento) {
@@ -35,15 +54,18 @@ public class Investimento implements Serializable{
 	public void setTipoInvestimento(String tipoInvestimento) {
 		this.tipoInvestimento = tipoInvestimento;
 	}
-
-	public BigDecimal getTavaInvestimento() {
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public BigDecimal getTaxaInvestimento() {
 		return taxaInvestimento;
 	}
 
-	public void setTavaInvestimento(BigDecimal tavaInvestimento) {
-		this.taxaInvestimento = tavaInvestimento;
+	public void setTaxaInvestimento(BigDecimal taxaInvestimento) {
+		this.taxaInvestimento = taxaInvestimento;
 	}
-
 	
 }
 

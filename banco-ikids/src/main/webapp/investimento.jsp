@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +67,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" onclick="redirecionarPagina()">Olá, [Nome do Usuário] <br>Saldo R$ [Valor do Saldo]</a>
+              <a class="nav-link" onclick="redirecionarPagina()">Olá, ${param.nome}, <span onclick="sair()" >sair</span> <br>Saldo R$ ${param.saldo}</a>
             </li>
           </ul>
         </div>
@@ -75,39 +76,67 @@
     <div class="container" style="margin-top: 20px;">
       <h1 class="text-left">Investimentos</h1>
       <div class="row mt-5">
+      <c:if test="${mensagem != null}">
+	    	<c:choose>
+			    <c:when test="${mensagem != null && mensagem eq 'Cadastrado com sucesso!'}">
+			        <div class="alert alert-success">
+			            ${mensagem}
+			        </div>
+			    </c:when>
+			    <c:otherwise>
+			        <div class="alert alert-danger">
+			            ${mensagem}
+			        </div>
+			    </c:otherwise>
+			</c:choose>    		
+    	</c:if>
+      <form action="/banco-ikids/InvestimentoRendaFixa" method="POST">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Renda Fixa</h5>
               <p class="card-text">Descrição da Renda Fixa</p>
-              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento">
-              <button class="btn btn-nubank">Investir</button>
+               <input type="hidden" name="idCliente" value="${param.idCliente}">
+              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento" name="vl_invest">
+              <button class="btn btn-nubank" type="submit">Investir</button>
             </div>
           </div>
         </div>
+       </form> 
+      	<form action="/banco-ikids/InvestimentoRendaVariavel" method="POST">	  
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Renda Variável</h5>
               <p class="card-text">Descrição da Renda Variável</p>
-              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento">
-              <button class="btn btn-nubank">Investir</button>
+              <input type="hidden" name="idCliente" value="${param.idCliente}">
+              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento" name="vl_invest">
+              <button class="btn btn-nubank" type="submit">Investir</button>
             </div>
           </div>
         </div>
+        </form>
+        <form action="/banco-ikids/TesouroDireto" method="POST">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Tesouro Direto</h5>
               <p class="card-text">Descrição do Tesouro Direto</p>
-              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento">
-              <button class="btn btn-nubank">Investir</button>
+              <input type="hidden" name="idCliente" value="${param.idCliente}">
+              <input type="text" class="form-control mb-2 nubank" placeholder="Valor do investimento" name="vl_invest">
+              <button class="btn btn-nubank" type="submit">Investir</button>
             </div>
           </div>
         </div>
+        </form>
       </div>
     </div>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+	    function sair(){
+			window.location.href = 'http://localhost:8080/banco-ikids/index.jsp';
+		}
+	</script>
   </body>
 </html>

@@ -183,7 +183,7 @@
     }
     
     function abrirConta(){
-    	window.location.href = 'http://localhost:8080/banco-ikids/cadastro.html';
+    	window.location.href = 'http://localhost:8080/banco-ikids/cadastro.jsp';
     }
   </script>
 </body>
